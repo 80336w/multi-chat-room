@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Chat Room</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="panel sidebar">
+        <div class="sidebar-header">
+          <p class="eyebrow">Room</p>
+          <h2 id="roomLabel">general</h2>
+        </div>
+
+        <div class="stat-row">
+          <span>Online</span>
+          <strong id="userCount">0</strong>
+        </div>
+
+        <ul id="userList" class="user-list" aria-live="polite"></ul>
+
+        <button id="leaveBtn" class="ghost-btn" type="button">Leave room</button>
+      </aside>
+
+      <main class="panel chat-panel">
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div id="typingIndicator" class="typing hidden"></div>
+
+        <form id="joinForm" class="join-form">
+          <input
+            id="usernameInput"
+            type="text"
+            maxlength="20"
+            placeholder="Nickname"
+            autocomplete="off"
+          />
+          <input
+            id="roomInput"
+            type="text"
+            maxlength="20"
+            placeholder="Room name"
+            autocomplete="off"
+          />
+          <button type="submit">Join</button>
+        </form>
+
+        <form id="chatForm" class="chat-form">
+          <input
+            id="messageInput"
+            type="text"
+            maxlength="500"
+            placeholder="Type a message..."
+            autocomplete="off"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
